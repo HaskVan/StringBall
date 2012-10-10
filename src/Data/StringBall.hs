@@ -44,6 +44,21 @@ data UTF16BE t = UTF16BE { fromUTF16BE :: t, onErrorUTF16BE :: TE.OnDecodeError 
 data UTF32LE t = UTF32LE { fromUTF32LE :: t, onErrorUTF32LE :: TE.OnDecodeError }
 data UTF32BE t = UTF32BE { fromUTF32BE :: t, onErrorUTF32BE :: TE.OnDecodeError }
 
+instance Functor UTF8 where
+  fmap f u@(UTF8 t _) = u { fromUTF8 = f t }
+
+instance Functor UTF16LE where
+  fmap f u@(UTF16LE t _) = u { fromUTF16LE = f t }
+
+instance Functor UTF16BE where
+  fmap f u@(UTF16BE t _) = u { fromUTF16BE = f t }
+
+instance Functor UTF32LE where
+  fmap f u@(UTF32LE t _) = u { fromUTF32LE = f t }
+
+instance Functor UTF32BE where
+  fmap f u@(UTF32BE t _) = u { fromUTF32BE = f t }
+
 ----------
 
 utf8 :: a -> UTF8 a
