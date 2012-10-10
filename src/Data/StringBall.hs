@@ -5,6 +5,11 @@ module Data.StringBall
        , IsText (..)
        , IsLazyText(..)
        , IsString'(..)
+       , fromUTF8
+       , fromUTF16LE
+       , fromUTF16BE
+       , fromUTF32LE
+       , fromUTF32BE
        , utf8
        , utf16LE
        , utf16BE
